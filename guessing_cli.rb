@@ -12,17 +12,20 @@ def correct
   puts "You guessed the correct number!"
 end
 
+
 def run_guessing_game
   greetings
   user_num = gets.chomp
-  cpu_num = rand(1..6)
+  cpu_num = rand(1..6).to_s
   
-  if user_num == exit
+  if user_num == "exit"
     exit_game
-  elsif user_num = cpu_num
+  elsif user_num == cpu_num
     correct
+    run_guessing_game
   else
-    return "The computer guessed #{cpu_num}"
+    puts "The computer guessed #{cpu_num}."
+    run_guessing_game
   end
 
 end
